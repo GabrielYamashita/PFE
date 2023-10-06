@@ -38,6 +38,10 @@ plt.ylabel('Normalized prices')
 r = np.mean(df, axis=0)
 # print(r)
 
+# Desvio Padrão
+std = np.std(df, axis=0)
+# print(std)
+
 # Matriz de Covariânica
 covar = pd.DataFrame(np.cov(df, rowvar=False, bias=True))
 # print(covar)
@@ -46,6 +50,9 @@ covar = pd.DataFrame(np.cov(df, rowvar=False, bias=True))
 # Taxa de Retorno
 def ret(r, w):
     return r.dot(w)
+
+# Risco da Carteira
+fun1 = lambda w: np.sqrt(np.dot(w, np.dot(w, covar)))
 
 # Volatilidade
 def vol(w, covar):
@@ -63,7 +70,6 @@ linear_constraint = LinearConstraint(np.ones((df.shape[1], ), dtype=int), 1, 1) 
 # Procurando os Pesos do Portfólio com Menor Risco
 weights = np.ones(df.shape[1])
 x0 = weights/np.sum(weights)
-fun1 = lambda w: np.sqrt(np.dot(w, np.dot(w, covar)))
 res = minimize(fun1, x0, method='trust-constr', constraints=linear_constraint, bounds=bounds)
 w_min = res.x
 
@@ -81,7 +87,7 @@ res_sharpe = minimize(fun2, x0, method='trust-constr', constraints=linear_constr
 # Pesos Ótimos para o Maior Índice de Sharpe
 w_sharpe = res_sharpe.x
 print(w_sharpe)
-print(f'return: {ret(r, w_min):.2%}\nrisk: {vol(w_min, covar):.3f}\n')
+print(f'return: {ret(r, w_sharpe):.2%}\nrisk: {vol(w_sharpe, covar):.3f}\n')
 
 
 # Plotando a Fronteira Eficiente
