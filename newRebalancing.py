@@ -147,7 +147,6 @@ def rebalancePortfolio(portfolio, pValue):
 
                 # offset = portfolio[stock]["Offset"]
                 buyValue = sumSell
-                # print(buyValue)
 
                 buyPapers = buyValue//currStockPrice
                 portfolio[stock]["QuantityPapers"] = buyPapers
@@ -157,12 +156,13 @@ def rebalancePortfolio(portfolio, pValue):
                 portfolio[stock]["RebalancePortfolioValue"] = portfolioStockValue + buyValue
 
         # print(portfolio)
+        return sumSell
 
-rebalancePortfolio(myPortfolio, portfolioValue)
+surplus = rebalancePortfolio(myPortfolio, portfolioValue)
 
 
 ##
-def returnOrders(portfolio):
+def returnOrders(portfolio, surplus):
     new_pValue = sum([i["RebalancePortfolioValue"] for i in portfolio.values()])
 
     for stock in portfolio:
@@ -172,5 +172,7 @@ def returnOrders(portfolio):
         newWeight = rebalancePValue/new_pValue
 
         print(f"[{stock}]\n- {order} {qntPapers} papers\n-New Weight {newWeight:.2%}\n\n")
+    
+    print(f"Surplus Capital: {surplus}")
 
 returnOrders(myPortfolio)
