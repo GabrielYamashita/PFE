@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 # Funções Importantes
 def invest(df, stocks, i, amount):
     c = dict([(col, j) for j, col in enumerate(df.columns)])
-    halfValue = amount/2
+    halfValue = amount/len(stocks)
     # print(stocks)
 
     for stock in stocks:
