@@ -1,46 +1,79 @@
-
-9741.327865600586
--319.1723175048828
 {
     'AAPL': {
         'CurrentWeight': 15, 
-        'Target': 25, 
+        'Target': 30, 
         'Thresholds': (5, 5), 
-        'CurrentStockPrice': 167.6750030517578, 
+        'CurrentStockPrice': 176.64999389648438, 
         'PortfolioStockValue': 15000.0, 
         'NeedRebalance': True, 
-        'Offset': -10, 
+        'Offset': -15, 
         'Order': 'Buy', 
-        'Buy Papers': 60.0, 
-        'RebalancePortfolioValue': 25060.50018310547
+        'QuantityPapers': 112.0, 
+        'RebalancePortfolioValue': 34784.79931640625
     }, 
     
     'GOOGL': {
-        'CurrentWeight': 30, 
-        'Target': 25, 
+        'CurrentWeight': 25, 
+        'Target': 15, 
         'Thresholds': (10, 10), 
-        'CurrentStockPrice': 123.06500244140625, 
-        'PortfolioStockValue': 30000.0, 
-        'NeedRebalance': False, 
-        'Offset': 5, 
+        'CurrentStockPrice': 129.10000610351562, 
+        'PortfolioStockValue': 25000.0, 
+        'NeedRebalance': True, 
+        'Offset': 10, 
         'Order': 'Sell', 
-        'Sell Papers': 40.0, 
-        'RebalancePortfolioValue': 25077.39990234375
+        'QuantityPapers': 77.0, 
+        'RebalancePortfolioValue': 15059.299530029297
+    }, 
+    
+    'NVDA': {
+        'CurrentWeight': 20, 
+        'Target': 25, 
+        'Thresholds': (2.5, 2.5), 
+        'CurrentStockPrice': 450.04998779296875, 
+        'PortfolioStockValue': 20000.0, 
+        'NeedRebalance': True, 
+        'Offset': -5, 
+        'Order': 'Buy', 
+        'QuantityPapers': 0.0, 
+        'RebalancePortfolioValue': 20000.0
     }, 
     
     'TSLA': {
-        'CurrentWeight': 55, 
-        'Target': 50, 
-        'Thresholds': (7.5, 7.5), 
-        'CurrentStockPrice': 209.50990295410156, 
-        'PortfolioStockValue': 55000.0, 
-        'NeedRebalance': False, 
-        'Offset': 5, 
+        'CurrentWeight': 40, 
+        'Target': 30, 
+        'Thresholds': (5, 5), 
+        'CurrentStockPrice': 219.9600067138672, 
+        'PortfolioStockValue': 40000.0, 
+        'NeedRebalance': True, 
+        'Offset': 10, 
         'Order': 'Sell', 
-        'Sell Papers': 23.0, 
-        'RebalancePortfolioValue': 50181.272232055664
+        'QuantityPapers': 45.0, 
+        'RebalancePortfolioValue': 30101.799697875977
     }
 }
-9746.64013671875
-31.060455322265625
-{'AAPL': {'CurrentWeight': 15, 'Target': 25, 'Thresholds': (5, 5), 'CurrentStockPrice': 167.50999450683594, 'PortfolioStockValue': 15000.0, 'NeedRebalance': True, 'Offset': -10, 'Order': 'Buy', 'Buy Papers': 58.0, 'RebalancePortfolioValue': 24715.579681396484}, 'GOOGL': {'CurrentWeight': 30, 'Target': 25, 'Thresholds': (10, 10), 'CurrentStockPrice': 122.98500061035156, 'PortfolioStockValue': 30000.0, 'NeedRebalance': False, 'Offset': 5, 'Order': 'Sell', 'Sell Papers': 40.0, 'RebalancePortfolioValue': 25080.599975585938}, 'TSLA': {'CurrentWeight': 55, 'Target': 50, 'Thresholds': (7.5, 7.5), 'CurrentStockPrice': 209.8800048828125, 'PortfolioStockValue': 55000.0, 'NeedRebalance': False, 'Offset': 5, 'Order': 'Sell', 'Sell Papers': 23.0, 'RebalancePortfolioValue': 50172.75988769531}}
+
+'''
+New Portfolio Value: 99945.89854431152
+Surplus Capital: 54.10145568847656
+
+[AAPL]
+- Buy 112.0 papers
+- New Weight 34.80%
+
+
+[GOOGL]
+- Sell 77.0 papers
+- New Weight 15.07%
+
+
+[NVDA]
+- Buy 0.0 papers
+- New Weight 20.01%
+
+
+[TSLA]
+- Sell 45.0 papers
+- New Weight 30.12%
+'''
+
+

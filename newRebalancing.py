@@ -32,11 +32,11 @@ from datetime import datetime, timedelta
 
 
 # Informações do Excel
-stocks = ['AAPL', 'GOOGL', 'TSLA']
-weights = [15, 30, 55]
+stocks = ['AAPL', 'GOOGL', 'NVDA', 'TSLA']
+weights = [15, 25, 20, 40]
 portfolioValue = 100_000
-thrshs = [(5, 5), (10, 10), (7.5, 7.5)]
-targets = [25, 25, 50]
+thrshs = [(5, 5), (10, 10), (2.5, 2.5), (5, 5)]
+targets = [30, 15, 25, 30]
 
 
 # Extraindo Dados da Yahoo Finance
@@ -145,7 +145,8 @@ def rebalancePortfolio(portfolio, pValue):
                 portfolioStockValue = portfolio[stock]["PortfolioStockValue"]
                 currStockPrice = portfolio[stock]["CurrentStockPrice"]
 
-                # offset = portfolio[stock]["Offset"]
+                offset = portfolio[stock]["Offset"]
+                buyValue = offset/100 * sumSell
                 buyValue = sumSell
 
                 buyPapers = buyValue//currStockPrice
@@ -155,7 +156,7 @@ def rebalancePortfolio(portfolio, pValue):
                 sumSell -= buyValue
                 portfolio[stock]["RebalancePortfolioValue"] = portfolioStockValue + buyValue
 
-        # print(portfolio)
+        print(portfolio)
         return sumSell
 
 surplus = rebalancePortfolio(myPortfolio, portfolioValue)
@@ -165,14 +166,16 @@ surplus = rebalancePortfolio(myPortfolio, portfolioValue)
 def returnOrders(portfolio, surplus):
     new_pValue = sum([i["RebalancePortfolioValue"] for i in portfolio.values()])
 
+    print(f"New Portfolio Value: {new_pValue}")
+    print(f"Surplus Capital: {surplus}\n")
+    
     for stock in portfolio:
         order = portfolio[stock]["Order"]
-        qntPapers = portfolio[stock]["QuantityPapers"]
+        qntPapers = abs(portfolio[stock]["QuantityPapers"])
         rebalancePValue = portfolio[stock]["RebalancePortfolioValue"]
         newWeight = rebalancePValue/new_pValue
 
-        print(f"[{stock}]\n- {order} {qntPapers} papers\n-New Weight {newWeight:.2%}\n\n")
+        print(f"[{stock}]\n- {order} {qntPapers} papers\n- New Weight {newWeight:.2%}\n\n")
     
-    print(f"Surplus Capital: {surplus}")
 
-returnOrders(myPortfolio)
+returnOrders(myPortfolio, surplus)
