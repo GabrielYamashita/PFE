@@ -1,11 +1,16 @@
 
-import locale
 
-locale.setlocale(locale.LC_ALL, 'pt-BR.utf-8')
+# search = "This is a sample string."
+# patternsCDI = ['dadadjla', 'sfksjfhskfh', 'is']
 
+# # def check(search):
+# #     checkWord = search.split()
+# #     for substring in patternsCDI:
+# #         return any(substring in checkWord)
 
-net_worth = 1796291.5729885271
+# # print(check(search))
 
-x = locale.format_string("%.2f", net_worth, grouping=True, monetary=True)
+# substring_found = any(substring in search.split() for substring in patternsCDI)
 
-print(f"Price {x}")
+# print("At least one substring was found." if substring_found else "No substrings were found.")
+
