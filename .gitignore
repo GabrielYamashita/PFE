@@ -3,5 +3,6 @@ Benchmarks/
 data/
 stocks_data/
 
-*.xlsx  
+*.xlsx
+*.xlsm
 __pycache__/
