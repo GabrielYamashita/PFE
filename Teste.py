@@ -40,7 +40,6 @@ def optimize_fixed_parameters(num_fixed_params):
 # Specify the number of parameters to fix
 values_to_find = ['app4']
 indices = [data.index.get_loc(name) for name in values_to_find]
-print(indices)
 num_fixed_params = indices
 
 
